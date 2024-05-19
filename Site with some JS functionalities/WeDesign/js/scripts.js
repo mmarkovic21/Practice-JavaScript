@@ -19,11 +19,21 @@ var aboutUs = {
 var unseletectedColor = "#646872";
 var seletectedColor = "#2A2D34";
 
-let selectedValue = document.getElementsByClassName("single-tab");
+let aboutUsTabs = document.getElementsByClassName("single-tab");
 
-for(let i=0; i<selectedValue.length; i++){
-  let clickedItem = this.innerHTML;
-  document.getElementsByClassName("box-text").innerHTML = 
+for(let i=0; i<aboutUsTabs.length; i++){
+  aboutUsTabs[i].onclick = function(){
+  let clickedValue = this.innerHTML;
+  
+  document.getElementById("box-text").innerHTML = aboutUs[clickedValue];
+
+  for(let j=0; j<aboutUsTabs.length; j++){
+    aboutUsTabs[j].style["background-color"] = unseletectedColor;
+    aboutUsTabs[j].style["font-weight"] = "normal";
+  }
+  this.style["background-color"] = seletectedColor;
+  this.style["font-weight"] = "bold";
+}
 }
 
 
