@@ -58,13 +58,55 @@ var ourServices = [
   
 ];
 
+let previous,
+next,
+currentIndex,
+title,
+text, 
+serviceText,
+serviceTitle;
+
+serviceTitle = document.getElementById("service-title");
+serviceText = document.getElementById("service-text");
+
+previous = document.getElementById("service-previous");
+next = document.getElementById("service-next");
+
+currentIndex = 0;
+
+next.onclick = function () {
+  if(currentIndex == (ourServices.length-1)) {
+    currentIndex = 0;
+  } else {
+  currentIndex += 1;
+}
+  title = ourServices[currentIndex].title;
+  text = ourServices[currentIndex].text;
+
+  serviceTitle.innerHTML = title;
+  serviceText.innerHTML = text;
+}
+
+previous.onclick = function () {
+  if(currentIndex == 0){
+    currentIndex = ourServices.length-1;
+    
+  } else {
+    currentIndex -= 1;
+  }
+    title = ourServices[currentIndex].title;
+    text = ourServices[currentIndex].text;
+
+    serviceTitle.innerHTML = title;
+    serviceText.innerHTML = text;
+}
 
 
 
 
 // Footer
 
-
+document.getElementById("current_year").innerHTML = new Date().getFullYear();
 
   
    
